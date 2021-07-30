@@ -61,7 +61,7 @@ static int hex_print(char c)
  * @S: string to print
  * Return: number of chars printed
  */
-int print_s(va_list S)
+int print_S(va_list S)
 {
 	unsigned int i;
 	int count = 0;
