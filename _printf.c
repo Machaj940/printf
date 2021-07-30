@@ -1,6 +1,5 @@
 #include "holberton.h"
 #include <stdlib.h>
-#include <unistd.h>
 /**
  * check_for_specifiers - checks if there is a valid format specifier
  * @format: possible format specifier
@@ -37,12 +36,12 @@ static int(*check_for_specifiers(const char *format))(va_list)
 }
 
 /**
- * _putchar - writes the character c to stdout
+ * _write_char - writes the character c to stdout
  * @c: the char to print
  * Return: on success 1.
  * On error, -1 is returned, and errno is set appropriately
  */
-int _putchar(char c)
+int _write_char(char c)
 {
 	return (write(1, &c, 1));
 }
@@ -65,7 +64,7 @@ int _printf(const char *format, ...)
 	{
 		for (; format[i] != '%' && format[i]; i++)
 		{
-			_putchar(format[i]);
+			_write_char(format[i]);
 			count++;
 		}
 		if (!format[i])
@@ -79,7 +78,7 @@ int _printf(const char *format, ...)
 		}
 		if (!format[i + 1])
 			return (-1);
-		_putchar(format[i]);
+		_write_char(format[i]);
 		count++;
 		if (format[i + 1] == '%')
 			i += 2;
@@ -99,7 +98,7 @@ int print_c(va_list c)
 {
 	char ch = (char)va_arg(c, int);
 
-	_putchar(ch);
+	_write_char(ch);
 	return (1);
 }
 
@@ -117,7 +116,7 @@ int print_s(va_list s)
 		str = "(null)";
 	for (count = 0; str[count]; count++)
 	{
-		_putchar(str[count]);
+		_write_char(str[count]);
 	}
 	return (count);
 }
