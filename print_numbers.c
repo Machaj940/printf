@@ -13,13 +13,11 @@ int print_i(va_list i)
 	count = 0;
 	m = 1000000000;
 	a[0] = n / m;
-
 	for (j = 1; j < 10; j++)
 	{
 		m /= 10;
 		a[j] = (n / m) % 10;
 	}
-
 	if (n < 0)
 	{
 		_putchar ('-');
